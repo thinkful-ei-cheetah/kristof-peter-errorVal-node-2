@@ -2,19 +2,21 @@
 
 const express = require('express');
 const morgan = require('morgan');
+const store = require('./playstore');
 
 const app = express();
 
 app.use(morgan('dev'));
 
-app.get('/sum', (request, response) => {
+app.get('/app', (request, response) => {
   const query = request.query;
-  const sort = Number(query.sort);
-  const genres = Number(query.genre);
+  const sort = query.sort;
+  const genres = query.genre;
 
-  const output = `${sort}, ${genres}`;
+  const output = store;
+  console.log(`sort: ${sort}, genre: ${genres}`);
 
-  response.status(200).json(output)
+  response.status(200).json(output);
 });
 
 
