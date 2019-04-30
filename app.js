@@ -19,16 +19,18 @@ app.get('/app', (request, response) => {
     if (!valid.includes(sort)){
       response.status(404).send('error not a sort option');
     }
-    if(sort === 'Rating') {
+    // if(sort === 'Rating') {
+    //   output = output.sort( (a,b) => {
+    //     return b[sort] - a[sort]
+    //   });
+    // }
+    // if(sort === 'App'){
+
+
       output = output.sort( (a,b) => {
-        return b[sort] - a[sort]
-      });
-    }
-    if(sort === 'App'){
-      output = output.sort( (a,b) => {
-        return a[sort].localeCompare(b[sort], 'en', {sensitivity: 'base'});
+        return a[sort].toString().localeCompare(b[sort].toString(), 'en', {sensitivity: 'base', numeric: true});
       })
-    }
+    //}
   }
 
   if(genres){
