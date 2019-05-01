@@ -53,11 +53,10 @@ it('should return an array of apps sorted by rating', () => {
     //   const apps = res.body;
     //   let titles = apps.map(app => app.App)
     //   expect(titles).to.eql(expected);
-
         let i = 0;
         let sorted = true;
         while(sorted && i < res.body.length - 1) {
-          sorted =  res.body[i].Rating <= res.body[i + 1].Rating;
+          sorted = res.body[i].Rating <= res.body[i + 1].Rating;
           i++;
         }
         expect(sorted).to.be.true;
