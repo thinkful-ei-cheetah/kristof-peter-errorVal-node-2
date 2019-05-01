@@ -46,8 +46,6 @@ app.get('/app', (request, response) => {
   response.status(200).json(output);
 });
 
+module.exports = app;
 
 
-app.listen(8080, function() {
-  console.info(`Server is listening on ${this.address().port}`);
-});
